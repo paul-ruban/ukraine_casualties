@@ -8,7 +8,7 @@
  */
  exports.insertNames = (req, res) => {
     const fs = require('fs');
-    const peopleData = JSON.parse(fs.readFileSync('./ukraine/peopleData.json'));
+    const peopleData = JSON.parse(fs.readFileSync('./data/peopleData.json'));
 
     console.log('req is', req)
     if (req.method === 'OPTIONS') {

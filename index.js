@@ -1,3 +1,3 @@
-const problem = require('./ukraine/insertMany');
+const problem = require('./src/insertMany');
 
 problem.main();
