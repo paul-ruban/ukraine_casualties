@@ -5,11 +5,11 @@ from google.cloud import vision
 
 def detect_document():
     """Detects document features in an image."""
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/Users/odymov/Documents/Altiteck/UkraineCasualties/Code/ukraine_casualties/keys/keyFile.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="../../keys/keyFile.json"
     client = vision.ImageAnnotatorClient()
 
     # path = '/Users/odymov/Documents/Altiteck/UkraineCasualties/Code/ukraine_casualties/data/images/IMG_20220315_233750_090.jpg'
-    path = '/Users/odymov/Documents/Altiteck/UkraineCasualties/Code/ukraine_casualties/data/images/IMG_20220403_113153_300.jpeg'
+    path = '../../data/images/IMG_20220403_113153_300.jpeg'
 
     with io.open(path, 'rb') as image_file:
         content = image_file.read()
