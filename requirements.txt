@@ -1,3 +1,5 @@
+tqdm
 pandas
 pdfminer.six
+torch
 transformers
