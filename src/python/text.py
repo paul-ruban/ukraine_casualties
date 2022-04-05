@@ -5,7 +5,7 @@ import more_itertools as mit
 import torch
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 
-from utils import (
+from .utils import (
     get_device
 )
 
@@ -133,8 +133,8 @@ def extract_names(
 
         for i, person in enumerate(people):
             # TODO think about how to handle this
-            # since last name is not tagged as a person, add at most 3 tokens from the left
-            start_idx = max(person[0] - 3, 0 if i == 0 else people[i-1][-1])
+            # since last name is not tagged as a person, add at most 5 tokens from the left
+            start_idx = max(person[0] - 5, 0 if i == 0 else people[i-1][-1])
             name = tokens[start_idx : person[-1] + 1]
             names.append(tokenizer.convert_tokens_to_string(name))        
 
@@ -162,6 +162,6 @@ def extract_names_from_batch(
     for tokens, labels in zip(tokens_list, labels_list):
         names = extract_names(tokens, labels, tokenizer)
         if names:
-            names_list.append(names)
+            names_list.extend(names)
 
     return names_list
