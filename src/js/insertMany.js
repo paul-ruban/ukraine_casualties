@@ -11,6 +11,7 @@
     const file_name = './data/peopleDataXlsx.json';
     console.log('file_name', file_name)
     const peopleData = JSON.parse(fs.readFileSync(file_name));
+    // const peopleData = JSON.parse(fs.readFileSync('./data/Волноваха/Волноваха на 13.03.2022.json'));
 
     console.log('req is', req)
     if (req.method === 'OPTIONS') {
