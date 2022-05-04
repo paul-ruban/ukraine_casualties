@@ -48,3 +48,12 @@ exports.getNames = (req, res) => {
       });
   }
 };
+
+exports.main = function() {
+  const req = {
+      method: "POST"
+  }
+  const res = "Hello World"
+
+  this.getNames(req, res)
+}

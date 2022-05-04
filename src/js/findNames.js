@@ -14,13 +14,15 @@
     res.status(204).send();
   } else {
     console.log('req.body is', req.body);
-  
+    var parsedReq = JSON.parse(req.body)
+
+
     var axios = require('axios');
     var data = JSON.stringify({
       "collection": "people_records",
       "database": "listing",
       "dataSource": "listing",
-      "filter": { "name" : {"$regex": req.body.name}}, // вська
+      "filter": { "name" : {"$regex": parsedReq.name}}, // вська
       "projection": {
         "_id": 0
       }
@@ -50,6 +52,18 @@
       });
   }
 };
+
+exports.main = function() {
+  const req = {
+      method: "POST",
+      body: JSON.stringify({
+        "name": "2003"
+      })
+  }
+  const res = "Hello World"
+
+  this.findNames(req, res)
+}
 
 // curl --location --request POST 'https://data.mongodb-api.com/app/data-jtywc/endpoint/data/beta/action/findOne' \
 // --header 'Content-Type: application/json' \
